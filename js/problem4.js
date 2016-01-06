@@ -26,4 +26,27 @@
 
 */
 
-// Write your JavaScript here
+function countMoney() {
+    var listOfNotes = "";
+    var notesTotal = 0;
+    //for(var i = 0; i < arguments.length; i++) {
+
+    //}
+    var i = 0;
+    while(i < arguments.length && isValidDenomination(arguments[i])) {
+        listOfNotes += arguments[i] + ", ";
+        notesTotal += arguments[i];
+        i += 1;
+    }
+    changeElementText("#notes", listOfNotes);
+    changeElementText("#notesTotal", notesTotal);
+
+}
+
+function isValidDenomination(n)
+{
+    if(n == 5 || n == 10 || n == 20 || n == 50 || n == 100 || n == 500 || n == 1000) {
+        return true;
+    }
+    else return false;
+}

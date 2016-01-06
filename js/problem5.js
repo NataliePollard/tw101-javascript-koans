@@ -33,4 +33,53 @@
      count: 7
  */
 
-// Write your JavaScript here
+function correctText(uncorrectedArray) {
+    console.log("boop");
+    var uncorrectedText = arrangeUncorrectedText(uncorrectedArray)
+    changeElementText("#uncorrectedText", uncorrectedText);
+    var correctedText = arrangeCorrectedText(uncorrectedArray);
+    changeElementText("#correctedText", correctedText);
+    var count = countWords(uncorrectedArray);
+    changeElementText("#count", count);
+
+}
+
+function countWords(uncorrectedArray) {
+    var count = 0;
+    count += uncorrectedArray[0].length;
+    count += uncorrectedArray[1].length;
+    count += uncorrectedArray[2].length;
+    return count;
+}
+
+function arrangeCorrectedText(uncorrectedArray) {
+    var correctedString = "";
+    correctedString += toNormalString(uncorrectedArray[0]);
+    correctedString += toReverseString(uncorrectedArray[1]);
+    correctedString += toNormalString(uncorrectedArray[2]);
+    return correctedString;
+}
+
+function arrangeUncorrectedText(uncorrectedArray) {
+    var uncorrectedString = "";
+    uncorrectedString += toNormalString(uncorrectedArray[0]) + "\n";
+    uncorrectedString += toNormalString(uncorrectedArray[1]) + "\n";
+    uncorrectedString += toNormalString(uncorrectedArray[2]) + "\n";
+    return uncorrectedString;
+}
+
+function toNormalString(array) {
+    var string = "";
+    for(var i = 0; i < array.length; i++) {
+        string += array[i] + " ";
+    }
+    return string;
+}
+
+function toReverseString(array) {
+    var string = "";
+    for (var i = array.length -1; i >= 0; i--) {
+        string += array[i] + " ";
+    }
+    return string;
+}
